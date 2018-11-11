@@ -22,6 +22,8 @@ def findmatch(term, lawdictterms):
 
 
 
+def binsearch(letter, lawdictterms)
+
 a = {
 		"hello": "world",
 		"airplane": "fuel", 
