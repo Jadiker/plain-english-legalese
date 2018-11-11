@@ -4,21 +4,6 @@ if __name__ == "__main__":
     from dict_data import load_dict
     from search import search_term, TermNotFound
     from contextlib import contextmanager # TODO delete; just for testing
-    
-    # TODO update the placeholders to the correct format
-    def placeholder_search_function(dictionary, term):
-        try:
-            return dictionary[term]
-        except KeyError:
-            return ([], [])
-        
-    @contextmanager
-    def placeholder_term_database_loader():
-        yield {"some term": (["a legal value"], ["a plain value"])}
-        
-        
-    # takes a dictionary and a term to search for in the dictionary
-    search_function = placeholder_search_function
 
     with load_users() as user_database:
         with load_dict() as term_database:
@@ -36,16 +21,21 @@ if __name__ == "__main__":
                     if user:
                         options.append("See User Info")
                     options.append("Quit")
-                    display("*" * 26)
+                    display("\n" + ("*" * 26))
                     user_choice = options[choice(options)]
                     
                     if user_choice == "Register":
                         username = prompt("Username: ")
                         password = prompt("Password: ")
-                        register(user_database, username, password)
-                        print("User successfully registered!")
+                        display("") # display a new line
+                        try:
+                            register(user_database, username, password)
+                        except Exception:
+                            display("Username already taken")
+                            continue
+                        display("User successfully registered!")
                         user = login(user_database, username, password)
-                        print("User successfully logged in!")
+                        display("User successfully logged in!")
                         continue
                     elif user_choice == "Login":
                         try:
@@ -54,7 +44,7 @@ if __name__ == "__main__":
                             user = login(user_database, username, password)
                             display("User successfully logged in!")
                         except Exception:
-                            display("Unsuccessful login")
+                            display("Login unsuccessful")
                         continue
                     elif user_choice == "Logout":
                         user = None
