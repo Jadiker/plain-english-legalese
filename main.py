@@ -36,6 +36,7 @@ if __name__ == "__main__":
                     if user:
                         options.append("See User Info")
                     options.append("Quit")
+                    display("*" * 26)
                     user_choice = options[choice(options)]
                     
                     if user_choice == "Register":
@@ -62,7 +63,7 @@ if __name__ == "__main__":
                     elif user_choice == "Search":
                         term = prompt("What term would you like to search for? ").strip()
                         try:
-                            term_found, responses = search_term(term, term_database)
+                            found_term, responses = search_term(term, term_database)
                             plain_responses, legal_responses = responses
                         except TermNotFound as e:
                             display("That term could not be found in database.")
@@ -70,14 +71,14 @@ if __name__ == "__main__":
                                 display("Did you mean any of the following words?\n{}".format(", ".join(e.close_terms)))
                             continue
                         
-                        display("The term '{}' was found in the database.".format(term_found))
+                        display("The term '{}' was found in the database.".format(found_term))
                             
                         if plain_responses:
-                            display("Here are the plain English definitions of '{}':\n\n{}\n".format(term, "\n".join(plain_responses)))
+                            display("Here are the plain English definitions of '{}':\n\n{}\n".format(found_term, "\n".join(plain_responses)))
                         else:
                             display("No plain definitions of that term were found\n\n")
                         if legal_responses:
-                            display("Here are some legal definitions of '{}':\n\n{}\n\n".format(term, "\n".join(legal_responses)))
+                            display("Here are some legal definitions of '{}':\n\n{}\n\n".format(found_term, "\n".join(legal_responses)))
                         else:
                             display("No legal definitions of that term were found\n")
                         continue

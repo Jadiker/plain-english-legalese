@@ -1,3 +1,7 @@
 If you get some error about it not finding the file, just revert back to the original dictionary by pasting this into the "dict_recent_file.txt":
 
-dict_folder\combinedDict.pkl
+Windows:
+    dict_folder\combinedDict.pkl
+    
+Mac:
+    dict_folder/combinedDict.pkl

@@ -23,7 +23,8 @@ def choice(options):
     print("What would you like to do?")
     for index, option in enumerate(options):
         human_index = index + 1
-        print("{}. {}".format(human_index, option))
+        print("    {}. {}".format(human_index, option))
+    print()
     
     # ask the user for choices
     number = None
