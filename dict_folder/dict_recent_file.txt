@@ -1,1 +1,1 @@
-dict_folder/db_dict_sv_21_26_40_Nov_10_2018.pkl
+dict_folder\db_dict_sv_21_30_32_Nov_10_2018.pkl
