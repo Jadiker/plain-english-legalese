@@ -3,10 +3,6 @@ from scrapePlainDefs import *
 import copy
 import pickle
 
-# with open('combinedDict.pkl', 'rb') as input:
-#     combinedDict = pickle.load(input)
-#
-# print(combinedDict)
 def save_object(obj, filename):
     with open(filename, 'wb') as output:  # Overwrites any existing file.
         pickle.dump(obj, output, pickle.HIGHEST_PROTOCOL)
@@ -47,4 +43,7 @@ for i in combinedDict:
             f.write("\n")
     except UnicodeEncodeError:
         continue
-
+#
+# combinedDict = pickle.load( open( "combinedDict.pkl", "rb" ) )
+# for i in combinedDict:
+#     print(i, combinedDict[i])
