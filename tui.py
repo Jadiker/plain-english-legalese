@@ -43,9 +43,9 @@ if __name__ == "__main__":
     display("Hello world!")
     user_response = prompt("Testing user input: ")
     print("Got back: {}".format(user_response))
-    my_options = ["The first option", "The second option"]
-    user_choice = choice(my_options)
-    print("The user chose to do the following: {}".format(my_options[user_choice]))
+    # my_options = ["The first option", "The second option"]
+    # user_choice = choice(my_options)
+    # print("The user chose to do the following: {}".format(my_options[user_choice]))
     
     
     
