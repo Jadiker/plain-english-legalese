@@ -1,1 +1,1 @@
-dict_folder\combinedDict.pkl
+dict_folder/combinedDict.pkl
