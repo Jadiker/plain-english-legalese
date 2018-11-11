@@ -1,6 +1,6 @@
 if __name__ == "__main__":
     from tui import display, prompt, choice
-    from user_data import login, register, load_users, User
+    from user_data import login, register, load_users, User, get_user_info
     from contextlib import contextmanager # TODO delete; just for testing
     
     class PlaceholderUser:
@@ -50,8 +50,6 @@ if __name__ == "__main__":
     # load plain term database (context manager)
     plain_term_database_loader = placeholder_plain_term_database_loader
 
-    get_user_info = placeholder_get_user_info
-    
     with load_users() as user_database:
         with legal_term_database_loader() as legal_term_database:
             with plain_term_database_loader() as plain_term_database:
@@ -93,7 +91,7 @@ if __name__ == "__main__":
                         display("Here are some legal definitions of {}:\n{}".format("\n".join(term, legal_response)))
                         display("Here are the plain English definitions of {}:\n{}".format("\n".join(term, plain_response)))
                     elif user_choice == "See User Info":
-                        display(get_user_info(user))
+                        display("\n" + get_user_info(user) + "\n")
                     elif user_choice == "Quit":
                         display("Goodbye!")
                         break
