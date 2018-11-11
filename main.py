@@ -60,7 +60,7 @@ if __name__ == "__main__":
                         continue
                     elif user_choice == "Search":
                         term = prompt("What term would you like to search for? ").strip()
-                        plain_responses, legal_responses = search_function(term_database, term)
+                        plain_responses, legal_responses = search_function(term, term_database)
                         
                         if plain_responses:
                             display("Here are the plain English definitions of '{}':\n\n{}\n".format(term, "\n".join(plain_responses)))

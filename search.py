@@ -1,3 +1,8 @@
+class TermNotFound(ValueError):
+	def __init__(self, close_terms):
+		super().__init__()
+		self.close_terms = close_terms
+
 
 # Finds a definition in law dict closest to input term
 # Returns tuple of lists (plain def, legal def)
@@ -11,9 +16,9 @@ def searchterm(term, lawdict):
 		editList = [levenshteinDistance(val, term) for val in lawdict.keys()]
 
 	if(min(editList) > 2 and min(editList) < 4):
-		return ([-1], [lawdict[list(keyList)[editList.index(min(editList))]]])
+		raise TermNotFound([list(keyList)[editList.index(min(editList))]])
 	elif(min(editList) > 4):
-		return ([-1], [])
+		raise TermNotFound([])
 	else:
 		return lawdict[list(keyList)[editList.index(min(editList))]]
 
@@ -33,3 +38,12 @@ def levenshteinDistance(s1, s2):
         distances = distances_
     return distances[-1]
 
+if __name__ == "__main__":
+	d = {"test word": (["simple test word"], ["complex test word"])}
+	try:
+		ans = searchterm("testrd", d)
+		print(ans)
+	except TermNotFound as e:
+		print("term not found")
+		print("similar terms")
+		print(e.close_terms)
