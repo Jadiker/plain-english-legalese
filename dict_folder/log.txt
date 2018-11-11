@@ -19,3 +19,4 @@ Log started at 22:27:01 on Nov 10, 2018
 loaded dict database from dict_folder\combinedDict.pkl
 Log started at 22:27:42 on Nov 10, 2018
 loaded dict database from dict_folder\combinedDict.pkl
+Dictbase saved at: 'dict_folder\\db_dict_sv_22_28_23_Nov_10_2018.pkl'

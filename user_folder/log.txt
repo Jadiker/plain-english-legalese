@@ -73,3 +73,4 @@ Log started at 22:27:01 on Nov 10, 2018
 Database for USER is not found - new database is created
 Log started at 22:27:42 on Nov 10, 2018
 Database for USER is not found - new database is created
+Userbase saved at: 'user_folder\\db_user_sv_22_28_23_Nov_10_2018.pkl'
