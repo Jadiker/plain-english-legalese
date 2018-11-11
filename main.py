@@ -42,7 +42,7 @@ if __name__ == "__main__":
                         password = prompt("Password: ")
                         register(user_database, username, password)
                         print("User successfully registered!")
-                        login(user_database, username, password)
+                        user = login(user_database, username, password)
                         print("User successfully logged in!")
                         continue
                     elif user_choice == "Login":
