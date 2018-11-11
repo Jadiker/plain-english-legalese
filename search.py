@@ -7,8 +7,9 @@ def searchterm(term, lawdict):
 		return lawdict[term]
 
 	nearterm = findmatch(term, lawdict)
-	# print("hello!" + str(lawdict[nearterm]))
 	return nearterm
+
+
 # finds the words in the list that begin with the sam eletter
 def split_lst(term, law_list):
 	f = term[0]
@@ -31,28 +32,33 @@ def findmatch(term, lawdictterms):
 
 	minword = False
 	minlength = 1000
-	for i in range(len(new_list)):
-		# edit distance
-		DPtable = []
-		DPtable = [[-1 for a in range(len(new_list[i]))] for b in range(len(term))]
-		if editdistance(term, new_list[i]) < minlength:
-			minlength = editdistance(term, new_list[i])
-			minword = new_list[i]
-		
-	# DPtable = []
-	# DPtable = [[-1 for a in range(4)] for b in range(len(term))]
-	# print(editdistance(term, "rove"))
+	if len(new_list) > 0:
+		for i in range(len(new_list)):
+			# edit distance
+			DPtable = []
+			DPtable = [[-1 for a in range(len(new_list[i]))] for b in range(len(term))]
+			if editdistance(term, new_list[i]) < minlength:
+				minlength = editdistance(term, new_list[i])
+				minword = new_list[i]
+	else:	
+		for i in range(len(lawdictterms)):
+			# edit distance
+			DPtable = []
+			DPtable = [[-1 for a in range(len(lawdictterms[i]))] for b in range(len(term))]
+			if editdistance(term, lawdictterms[i]) < minlength:
+				minlength = editdistance(term, lawdictterms[i])
+				minword = lawdictterms[i]
 
 	return minword
 
 
+# edit distance calculation, close to perfect!
 def editdistance(test, target):
 	global DPtable
 
 	testlen = len(test) - 1
 	targetlen = len(target) - 1
-	print(test + ": " + str(testlen))
-	print(target + ": " + str(targetlen))
+
 	if testlen == 0:
 		DPtable[testlen][targetlen] = targetlen
 		return targetlen - testlen
@@ -64,7 +70,6 @@ def editdistance(test, target):
 
 	# print(DPtable[testlen - 1][targetlen - 1])
 	if test[-1] == target[-1]:
-		print("poop")
 		return editdistance(test[:-1], target[:-1])
 
 	if DPtable[testlen - 1][targetlen - 1] == -1:
@@ -76,8 +81,6 @@ def editdistance(test, target):
 	if DPtable[testlen][targetlen - 1] == -1:
 		DPtable[testlen][targetlen - 1] = editdistance(test, target[:-1]) + 1
 
-	print (DPtable)
-	print(target)
 	return min(DPtable[testlen - 1][targetlen - 1], 
 			DPtable[testlen - 1][targetlen], 
 			DPtable[testlen][targetlen - 1]) 
@@ -91,8 +94,6 @@ a = {
 		"boat": "propeller",
 		"rover": "robotic arm",
 		"submarine": "nuclear core",
-		"triage": "jepardy"
+		"triage": "jepardy", 
+		"boaty people": "poop"
 	}
-
-term = "you"
-print(searchterm(term, a))
