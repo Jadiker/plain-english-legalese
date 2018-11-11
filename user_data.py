@@ -8,8 +8,8 @@ id_increment = 0
 
 
 class User(object):
-    def __init__(self, id, username, password):
-        self.Id = id
+    def __init__(self, username, password):
+        # self.Id = id
         self.Username = username
         self.Password = password
         self.Loginstate = True   # true or false
@@ -80,7 +80,40 @@ def load_users():
         print("Userbase saved at: {}".format(repr(user_save_file_addr)))
 
 
-# if __name__ == "__main__":
-#     with load_users() as db:
-#         db["ccc"] = User(1, "ccc", "bbb")
-#         print(db)
+def login(userbase, username, password):
+    try:
+        user_obj = userbase[username]
+        if (user_obj.login(password) == 0):
+            print("LOGGED IN as : {}".format(repr(username)))
+            return user_obj
+        else:
+            raise RuntimeError("Login unsuccessful")
+    except KeyError:
+        raise RuntimeError("Username does not exist")
+
+
+def register(userbase, username, password):
+    try:
+        user_obj = userbase[username]
+        raise RuntimeError("Username taken")
+    except KeyError:
+        userbase[username] = User(username, password)
+        print("REGISTERRED and LOGGED IN as: {}".format(repr(username)))
+
+
+def logout(userbase, username):
+    try:
+        user_obj = userbase[username]
+        user_obj.logout()
+        print("LOGGED OUT")
+    except KeyError:
+        raise RuntimeError("Wrong user, weird, check code")
+
+
+if __name__ == "__main__":
+    with load_users() as db:
+        # register(db, "aaa", "bbb")
+        login(db, "aaa", "bbb")
+        logout(db, "aaa")
+        # register(db, "aaa", "cc")
+        # print(db)
