@@ -3,6 +3,10 @@ import os
 import pickle
 from contextlib import contextmanager
 import subprocess
+from logger import Logger
+logger = Logger(output_file=os.path.join("user_folder", "log.txt"))
+logger.log("Log started at {}".format(datetime.datetime.now().strftime("%H:%M:%S on %b %d, %Y")))
+
 
 login_state = 0     # 0 is logged out, 1 is in
 id_increment = 0
@@ -61,11 +65,11 @@ def load_users():
         try:
             with open(database_file, "rb") as f1:
                 userbase = pickle.load(f1)
-                print("loaded users database from {}".format(database_file))
+                logger.log("loaded users database from {}".format(database_file))
         except FileNotFoundError:
             raise RuntimeError("Most recently saved file {} could not be found".format(repr(database_file)))
     except FileNotFoundError:
-        print("Database for USER is not found - new database is created")
+        logger.log("Database for USER is not found - new database is created")
         userbase = {}
     try:
         yield userbase
@@ -73,7 +77,7 @@ def load_users():
         try:
             formated_date_and_time = datetime.datetime.now().strftime("%H_%M_%S_%b_%d_%Y")
         except Exception:
-            print("Failed to get date time")
+            logger.log("Failed to get date time")
             formated_date_and_time = "Unknown time"
         user_save_file_addr = os.path.join(folder_addr, "db_user_sv_" + formated_date_and_time + ".pkl")
         with open(user_save_file_addr, "wb+") as f2:
@@ -81,14 +85,14 @@ def load_users():
 
         with open(exact_txt_addr, "w") as f3:
             f3.write(user_save_file_addr)
-        print("Userbase saved at: {}".format(repr(user_save_file_addr)))
+        logger.log("Userbase saved at: {}".format(repr(user_save_file_addr)))
 
 
 def login(userbase, username, password):
     try:
         user_obj = userbase[username]
         if (user_obj.login(password) == 0):
-            print("LOGGED IN as : {}".format(repr(username)))
+            logger.log("LOGGED IN as : {}".format(repr(username)))
             return user_obj
         else:
             raise RuntimeError("Login unsuccessful")
@@ -102,12 +106,12 @@ def register(userbase, username, password):
         raise RuntimeError("Username taken")
     except KeyError:
         userbase[username] = User(username, password)
-        print("REGISTERRED and LOGGED IN as: {}".format(repr(username)))
+        logger.log("REGISTERED as: {}".format(repr(username)))
 
 
 def logout(user_obj):
     user_obj.logout()
-    print("LOGGED OUT")
+    logger.log("LOGGED OUT")
 
 
 def get_user_info(user_obj):
@@ -117,7 +121,7 @@ def get_user_info(user_obj):
 
 def add_points(user_obj):
     user_obj.increase_point()
-    print("Added 1 point to user: {}".format(user_obj.get_username()))
+    logger.log("Added 1 point to user: {}".format(user_obj.get_username()))
 
 
 # The notifier function
@@ -125,10 +129,10 @@ def notify(title, subtitle, message):
     t = '-title {!r}'.format(title)
     s = '-subtitle {!r}'.format(subtitle)
     m = '-message {!r}'.format(message)
-    if os.name == "nt":
-        subprocess.run("msg * {}".format(message))
-    else:
-        os.system('terminal-notifier {}'.format(' '.join([m, t, s])))
+    # if os.name == "nt":
+    #     subprocess.run("msg * {}".format(message))
+    # else:
+    os.system('terminal-notifier {}'.format(' '.join([m, t, s])))
 
 
 def admin_remove_user(userbase, username):

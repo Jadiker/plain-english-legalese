@@ -1,0 +1,4 @@
+Log started at 20:47:16 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_20_45_03_Nov_10_2018.pkl
+REGISTERED as: 'Hello world'
+LOGGED IN as : 'Hello world'
