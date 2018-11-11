@@ -1,0 +1,54 @@
+Log started at 20:47:16 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_20_45_03_Nov_10_2018.pkl
+REGISTERED as: 'Hello world'
+LOGGED IN as : 'Hello world'
+Log started at 20:58:41 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_20_45_03_Nov_10_2018.pkl
+REGISTERED as: 'The best user'
+Log started at 20:59:42 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_20_45_03_Nov_10_2018.pkl
+REGISTERED as: 'hi there'
+Userbase saved at: 'user_folder\\db_user_sv_20_59_48_Nov_10_2018.pkl'
+Log started at 20:59:59 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_20_59_48_Nov_10_2018.pkl
+LOGGED IN as : 'hi there'
+Userbase saved at: 'user_folder\\db_user_sv_21_00_10_Nov_10_2018.pkl'
+Log started at 21:04:31 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_00_10_Nov_10_2018.pkl
+Userbase saved at: 'user_folder\\db_user_sv_21_04_31_Nov_10_2018.pkl'
+Log started at 21:05:36 on Nov 10, 2018
+Log started at 21:05:47 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_04_31_Nov_10_2018.pkl
+Userbase saved at: 'user_folder\\db_user_sv_21_05_53_Nov_10_2018.pkl'
+Log started at 21:06:29 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_05_53_Nov_10_2018.pkl
+Log started at 21:06:56 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_05_53_Nov_10_2018.pkl
+Userbase saved at: 'user_folder\\db_user_sv_21_07_06_Nov_10_2018.pkl'
+Log started at 21:18:53 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_07_06_Nov_10_2018.pkl
+Log started at 21:27:45 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_07_06_Nov_10_2018.pkl
+Log started at 21:28:15 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_07_06_Nov_10_2018.pkl
+Userbase saved at: 'user_folder\\db_user_sv_21_28_50_Nov_10_2018.pkl'
+Log started at 21:28:59 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_28_50_Nov_10_2018.pkl
+REGISTERED as: 'hi'
+LOGGED IN as : 'hi'
+LOGGED IN as : 'hi'
+Userbase saved at: 'user_folder\\db_user_sv_21_29_51_Nov_10_2018.pkl'
+Log started at 21:29:55 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_29_51_Nov_10_2018.pkl
+Userbase saved at: 'user_folder\\db_user_sv_21_30_32_Nov_10_2018.pkl'
+Log started at 21:30:53 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_30_32_Nov_10_2018.pkl
+REGISTERED as: 'hossam'
+LOGGED IN as : 'hossam'
+LOGGED IN as : 'hossam'
+Log started at 21:47:02 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_30_32_Nov_10_2018.pkl
+Userbase saved at: 'user_folder\\db_user_sv_21_47_02_Nov_10_2018.pkl'
+Log started at 21:53:25 on Nov 10, 2018
+loaded users database from user_folder\db_user_sv_21_47_02_Nov_10_2018.pkl
+Userbase saved at: 'user_folder\\db_user_sv_21_53_39_Nov_10_2018.pkl'
