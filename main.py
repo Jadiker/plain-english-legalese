@@ -33,7 +33,7 @@ if __name__ == "__main__":
                         except Exception:
                             display("Username already taken")
                             continue
-                        display("User successfully registered!")
+                        display("\nUser successfully registered!")
                         user = login(user_database, username, password)
                         display("User successfully logged in!")
                         continue
@@ -44,11 +44,11 @@ if __name__ == "__main__":
                             user = login(user_database, username, password)
                             display("User successfully logged in!")
                         except Exception:
-                            display("Login unsuccessful")
+                            display("\nLogin unsuccessful")
                         continue
                     elif user_choice == "Logout":
                         user = None
-                        display("Successfully logged out!")
+                        display("\nSuccessfully logged out!")
                         continue
                     elif user_choice == "Search":
                         term = prompt("What term would you like to search for? ").strip()

@@ -30,13 +30,21 @@ def choice(options):
     number = None
     while number is None:
         try:
-            number = int(input("Type the number of the option: "))
-            # turn the number into an index
+            user_input = input("Type the number or the option: ")
+            try:
+                number = int(user_input)
+            except ValueError:
+                simple_user_input = user_input.strip().lower()
+                for index, option in enumerate(options):
+                    simple_option = option.strip().lower()
+                    if simple_user_input == simple_option:
+                        number = index + 1
             number -= 1
             if number < 0 or len(options) <= number:
                 raise ValueError("Invalid number")
+                
         except Exception: # TODO should this be a ValueError or a general Exception?
-            print("Sorry, please enter a number between 1 and {}".format(len(options)))
+            print("Sorry, please enter a number between 1 and {} or the exact option".format(len(options)))
             number = None
     return number
     
