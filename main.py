@@ -39,6 +39,7 @@ if __name__ == "__main__":
                         options.append("See User Info")
                     options.append("Quit")
                     user_choice = options[choice(options)]
+                    
                     if user_choice == "Register":
                         username = prompt("Username: ")
                         password = prompt("Password: ")
@@ -46,6 +47,7 @@ if __name__ == "__main__":
                         print("User successfully registered!")
                         login(user_database, username, password)
                         print("User successfully logged in!")
+                        continue
                     elif user_choice == "Login":
                         try:
                             username = prompt("Username: ")
@@ -54,19 +56,24 @@ if __name__ == "__main__":
                             display("User successfully logged in!")
                         except Exception:
                             display("Unsuccessful login")
+                        continue
                     elif user_choice == "Logout":
                         user = None
                         display("Successfully logged out!")
+                        continue
                     elif user_choice == "Search":
                         term = prompt("What term would you like to search for? ").strip()
                         legal_responses, plain_responses = search_function(term_database, term)
                         
                         display("Here are some legal definitions of '{}':\n\n{}\n".format(term, "\n".join(legal_responses)))
                         display("Here are the plain English definitions of '{}':\n\n{}\n\n".format(term, "\n".join(plain_responses)))
+                        continue
                     elif user_choice == "See User Info":
                         display("\n" + get_user_info(user) + "\n")
+                        continue
                     elif user_choice == "Quit":
                         display("Goodbye!")
                         break
                     else:
                         print("Something went wrong in the program. Option {} was not recognized".format(user_choice))
+                        continue
