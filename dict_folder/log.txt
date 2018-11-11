@@ -1,6 +1,30 @@
+<<<<<<< HEAD
 Log started at 22:20:59 on Nov 10, 2018
 Log started at 22:23:02 on Nov 10, 2018
 Log started at 22:23:34 on Nov 10, 2018
 Log started at 22:24:36 on Nov 10, 2018
 loaded dict database from dict_folder/combinedDict.pkl
 Dictbase saved at: 'dict_folder/db_dict_sv_22_25_42_Nov_10_2018.pkl'
+=======
+Log started at 22:11:21 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:16:09 on Nov 10, 2018
+Log started at 22:16:21 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:17:19 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:19:30 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:21:58 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:25:55 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:26:06 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:26:45 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:27:01 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:27:42 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+>>>>>>> 594c0ba275cfc18ad74f25e0daf97e3eeb56eb8b
