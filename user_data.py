@@ -8,10 +8,6 @@ logger = Logger(output_file=os.path.join("user_folder", "log.txt"))
 logger.log("Log started at {}".format(datetime.datetime.now().strftime("%H:%M:%S on %b %d, %Y")))
 
 
-login_state = 0     # 0 is logged out, 1 is in
-id_increment = 0
-
-
 class User(object):
     def __init__(self, username, password):
         # self.Id = id

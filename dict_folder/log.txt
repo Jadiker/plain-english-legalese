@@ -1,0 +1,18 @@
+Log started at 21:23:42 on Nov 10, 2018
+Database for DICT is not found - new database is created
+Dictbase saved at: 'dict_folder/db_dict_sv_21_23_42_Nov_10_2018.pkl'
+Log started at 21:24:46 on Nov 10, 2018
+loaded dict database from dict_folder/combinedDict.pkl
+Dictbase saved at: 'dict_folder/db_dict_sv_21_24_46_Nov_10_2018.pkl'
+Log started at 21:25:18 on Nov 10, 2018
+loaded dict database from dict_folder/db_dict_sv_21_24_46_Nov_10_2018.pkl
+Dictbase saved at: 'dict_folder/db_dict_sv_21_25_18_Nov_10_2018.pkl'
+Log started at 21:25:43 on Nov 10, 2018
+loaded dict database from dict_folder/db_dict_sv_21_25_18_Nov_10_2018.pkl
+Dictbase saved at: 'dict_folder/db_dict_sv_21_25_43_Nov_10_2018.pkl'
+Log started at 21:25:50 on Nov 10, 2018
+loaded dict database from dict_folder/db_dict_sv_21_25_43_Nov_10_2018.pkl
+Dictbase saved at: 'dict_folder/db_dict_sv_21_25_50_Nov_10_2018.pkl'
+Log started at 21:26:40 on Nov 10, 2018
+loaded dict database from dict_folder/db_dict_sv_21_25_50_Nov_10_2018.pkl
+Dictbase saved at: 'dict_folder/db_dict_sv_21_26_40_Nov_10_2018.pkl'
