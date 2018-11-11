@@ -3,12 +3,13 @@ import os
 import pickle
 from contextlib import contextmanager
 
+
 @contextmanager
 def load():
     # things we can define
     save_folder = "database"
     most_recent_save_file = "_most_recent_save.txt"
-    
+
     # the rest of the code
     exact_most_recent_save_file = os.path.join(save_folder, most_recent_save_file)
     database_file = None
@@ -37,14 +38,14 @@ def load():
         except Exception:
             print("Failed to obtain formatted date and time!")
             formatted_date_and_time = "Unknown Time"
-        
+
         save_file = os.path.join(save_folder, "db_sv_" + formatted_date_and_time + ".pkl")
         with open(save_file, "wb+") as f:
             pickle.dump(database, f)
-        
+
         with open(exact_most_recent_save_file, "w") as f:
             f.write(save_file)
-            
+
         print("Database saved at: {}".format(save_file))
 
 
