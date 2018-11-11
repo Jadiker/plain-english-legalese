@@ -1,0 +1,7 @@
+Log started at 22:11:21 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:16:09 on Nov 10, 2018
+Log started at 22:16:21 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl
+Log started at 22:17:19 on Nov 10, 2018
+loaded dict database from dict_folder\combinedDict.pkl

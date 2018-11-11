@@ -7,9 +7,9 @@ class TermNotFound(ValueError):
 # Finds a definition in law dict closest to input term
 # Returns tuple of lists (plain def, legal def)
 # If edit distance > 2, then returns -1 and the closest term found or a tuple of empty lists
-def searchterm(term, lawdict):
+def search_term(term, lawdict):
 	if term in lawdict.keys():
-		return lawdict[term]
+		return (term, lawdict[term])
 	else:
 		keyList = lawdict.keys()
 		#editList = map(lambda x, y: levenshteinDistance(x, y), keyList, term)
@@ -20,7 +20,8 @@ def searchterm(term, lawdict):
 	elif(min(editList) > 4):
 		raise TermNotFound([])
 	else:
-		return lawdict[list(keyList)[editList.index(min(editList))]]
+		term_found = list(keyList)[editList.index(min(editList))]
+		return (term_found, lawdict[term_found])
 
 
 def levenshteinDistance(s1, s2):
@@ -41,7 +42,7 @@ def levenshteinDistance(s1, s2):
 if __name__ == "__main__":
 	d = {"test word": (["simple test word"], ["complex test word"])}
 	try:
-		ans = searchterm("testrd", d)
+		ans = search_term("testword", d)
 		print(ans)
 	except TermNotFound as e:
 		print("term not found")

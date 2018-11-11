@@ -52,3 +52,10 @@ Userbase saved at: 'user_folder\\db_user_sv_21_47_02_Nov_10_2018.pkl'
 Log started at 21:53:25 on Nov 10, 2018
 loaded users database from user_folder\db_user_sv_21_47_02_Nov_10_2018.pkl
 Userbase saved at: 'user_folder\\db_user_sv_21_53_39_Nov_10_2018.pkl'
+Log started at 22:11:21 on Nov 10, 2018
+Database for USER is not found - new database is created
+Log started at 22:16:09 on Nov 10, 2018
+Log started at 22:16:21 on Nov 10, 2018
+Database for USER is not found - new database is created
+Log started at 22:17:19 on Nov 10, 2018
+Database for USER is not found - new database is created
