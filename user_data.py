@@ -21,6 +21,9 @@ class User(object):
     def get_username(self):
         return self.Username
 
+    def get_points(self):
+        return self.Points
+
     def login(self, password):
         if password == self.Password:
             self.Loginstate = True
@@ -107,13 +110,19 @@ def logout(userbase, username):
         user_obj.logout()
         print("LOGGED OUT")
     except KeyError:
-        raise RuntimeError("Wrong user, weird, check code")
+        raise RuntimeError("No such user, weird, check code")
+
+
+def get_user_info(user_obj):
+    user_description = "Username: {}, Points: {}".format(user_obj.get_username(), user_obj.get_points())
+    return(user_description)
 
 
 if __name__ == "__main__":
     with load_users() as db:
         # register(db, "aaa", "bbb")
         login(db, "aaa", "bbb")
+        get_user_info(db["aaa"])
         logout(db, "aaa")
         # register(db, "aaa", "cc")
         # print(db)
