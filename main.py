@@ -1,11 +1,11 @@
 if __name__ == "__main__":
     from tui import display, prompt, choice
     from user_data import login, register, load_users, User, get_user_info
+    from dict_data import load_dict
     from contextlib import contextmanager # TODO delete; just for testing
     
     # TODO update the placeholders to the correct format
     def placeholder_search_function(dictionary, term):
-        print("(Searching {} for term {})".format(dictionary, term))
         try:
             return dictionary[term]
         except KeyError:
@@ -19,11 +19,8 @@ if __name__ == "__main__":
     # takes a dictionary and a term to search for in the dictionary
     search_function = placeholder_search_function
 
-    # load term database (context manager)
-    term_database_loader = placeholder_term_database_loader
-    
     with load_users() as user_database:
-        with term_database_loader() as term_database:
+        with load_dict() as term_database:
                 user = None
                 
                 while True:
@@ -63,10 +60,16 @@ if __name__ == "__main__":
                         continue
                     elif user_choice == "Search":
                         term = prompt("What term would you like to search for? ").strip()
-                        legal_responses, plain_responses = search_function(term_database, term)
+                        plain_responses, legal_responses = search_function(term_database, term)
                         
-                        display("Here are some legal definitions of '{}':\n\n{}\n".format(term, "\n".join(legal_responses)))
-                        display("Here are the plain English definitions of '{}':\n\n{}\n\n".format(term, "\n".join(plain_responses)))
+                        if plain_responses:
+                            display("Here are the plain English definitions of '{}':\n\n{}\n".format(term, "\n".join(plain_responses)))
+                        else:
+                            display("No plain definitions of that term were found\n\n")
+                        if legal_responses:
+                            display("Here are some legal definitions of '{}':\n\n{}\n\n".format(term, "\n".join(legal_responses)))
+                        else:
+                            display("No legal definitions of that term were found\n")
                         continue
                     elif user_choice == "See User Info":
                         display("\n" + get_user_info(user) + "\n")
