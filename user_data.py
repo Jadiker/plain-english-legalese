@@ -2,6 +2,7 @@ import datetime
 import os
 import pickle
 from contextlib import contextmanager
+import subprocess
 
 login_state = 0     # 0 is logged out, 1 is in
 id_increment = 0
@@ -119,12 +120,35 @@ def add_points(user_obj):
     print("Added 1 point to user: {}".format(user_obj.get_username()))
 
 
+# The notifier function
+def notify(title, subtitle, message):
+    t = '-title {!r}'.format(title)
+    s = '-subtitle {!r}'.format(subtitle)
+    m = '-message {!r}'.format(message)
+    if os.name == "nt":
+        subprocess.run("msg * {}".format(message))
+    else:
+        os.system('terminal-notifier {}'.format(' '.join([m, t, s])))
+
+
+def admin_remove_user(userbase, username):
+    try:
+        del userbase[username]
+        print("User {} removed".format(repr(username)))
+    except KeyError:
+        print("User {} does not exist".format(repr(username)))
+
+
 if __name__ == "__main__":
     with load_users() as db:
-        # register(db, "aaa", "bbb")
+        admin_remove_user(db, "aaa")
+        register(db, "aaa", "bbb")
         login(db, "aaa", "bbb")
         add_points(db["aaa"])
-        get_user_info(db["aaa"])
+        user_info_str = get_user_info(db["aaa"])
+        # notify user info in top right
+        notify(title='Legalese', subtitle='User info', message=user_info_str)
         logout(db["aaa"])
+
         # register(db, "aaa", "cc")
         # print(db)
