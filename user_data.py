@@ -80,7 +80,7 @@ def load_users():
         print("Userbase saved at: {}".format(repr(user_save_file_addr)))
 
 
-if __name__ == "__main__":
-    with load_users() as db:
-        db["ccc"] = User(1, "ccc", "bbb")
-        print(db)
+# if __name__ == "__main__":
+#     with load_users() as db:
+#         db["ccc"] = User(1, "ccc", "bbb")
+#         print(db)
