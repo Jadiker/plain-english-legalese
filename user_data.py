@@ -37,7 +37,7 @@ class User(object):
 
     def increase_point(self):       # called when user updates a term
                                         # which requires loged in
-        if Loginstate == True:
+        if self.Loginstate == True:
             self.Points += 1
             return 0
         else:
@@ -104,13 +104,9 @@ def register(userbase, username, password):
         print("REGISTERRED and LOGGED IN as: {}".format(repr(username)))
 
 
-def logout(userbase, username):
-    try:
-        user_obj = userbase[username]
-        user_obj.logout()
-        print("LOGGED OUT")
-    except KeyError:
-        raise RuntimeError("No such user, weird, check code")
+def logout(user_obj):
+    user_obj.logout()
+    print("LOGGED OUT")
 
 
 def get_user_info(user_obj):
@@ -118,11 +114,17 @@ def get_user_info(user_obj):
     return(user_description)
 
 
+def add_points(user_obj):
+    user_obj.increase_point()
+    print("Added 1 point to user: {}".format(user_obj.get_username()))
+
+
 if __name__ == "__main__":
     with load_users() as db:
         # register(db, "aaa", "bbb")
         login(db, "aaa", "bbb")
+        add_points(db["aaa"])
         get_user_info(db["aaa"])
-        logout(db, "aaa")
+        logout(db["aaa"])
         # register(db, "aaa", "cc")
         # print(db)
