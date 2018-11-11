@@ -62,6 +62,16 @@ def index_in(something):
     return something[1][0]
 
 
+def add_term(dictbase, term):
+    try:
+        term_obj = dictbase[term]
+        raise RuntimeError("This term is already taken")
+    except Exception:
+        dictbase[term] = ([], [])
+        print("term {} added".format(repr(term)))
+
+
 if __name__ == "__main__":
     with load_dict() as db:
-        print(index_in(db["attempt"]))
+        add_term(db, "UnitedStates")
+        print(db["UnitedStates"])
